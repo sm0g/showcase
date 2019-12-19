@@ -1,0 +1,61 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.engrs.showcase'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+ext {
+	commonsLangSuffix = "3"
+	commonsLangVersion = "3.9"
+	commonsTextVersion = "1.8"
+	lombokVersion = "1.18.6"
+	mapstructVersion = "1.3.0.Final"
+	javaxValidationVersion = "2.0.1.Final"
+	postgresqlVersion = "42.2.5"
+	javaxPersistenceApiVersion = "2.2"
+}
+
+repositories {
+	mavenCentral()
+}
+
+sourceSets.main.java.srcDirs += "${buildDir}/generated"
+
+compileJava {
+	options.annotationProcessorGeneratedSourcesDirectory = file("${buildDir}/generated")
+}
+
+dependencies {
+	annotationProcessor "javax.xml.bind:jaxb-api"
+	annotationProcessor "org.hibernate:hibernate-jpamodelgen"
+	annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+	annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation('io.springfox:springfox-swagger2:2.9.2')
+	implementation('io.springfox:springfox-swagger-ui:2.9.2')
+	implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8')
+	implementation('com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8')
+	implementation("org.apache.commons:commons-lang$commonsLangSuffix:$commonsLangVersion")
+	implementation("org.apache.commons:commons-text:$commonsTextVersion")
+	implementation("javax.validation:validation-api:$javaxValidationVersion")
+	implementation('org.liquibase:liquibase-core')
+
+	compileOnly("org.projectlombok:lombok:$lombokVersion")
+	runtime "com.h2database:h2"
+
+	compile("org.mapstruct:mapstruct-jdk8:$mapstructVersion")
+	compile "org.postgresql:postgresql:$postgresqlVersion"
+	compile "org.springframework.boot:spring-boot-starter-data-jpa"
+	compile "javax.persistence:javax.persistence-api:$javaxPersistenceApiVersion"
+
+	testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+	testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+	testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('javax.xml.bind:jaxb-api:2.4.0-b180830.0359')
+}

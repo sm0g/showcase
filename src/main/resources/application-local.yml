@@ -1,0 +1,39 @@
+server:
+  port: 9080
+
+spring:
+  profiles: local
+  application:
+      name:  showcase-app
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    platform:  org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        generate_statistics: false
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    database-change-log-lock-table: liquibase_lock
+    database-change-log-table: liquibase_log

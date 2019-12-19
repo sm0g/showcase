@@ -1,0 +1,30 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="1" author="Alexey">
+    <sql>create table if not exists value_assistance (
+      id bigserial not null,
+      va varchar(256) not null,
+      code varchar(128) not null,
+      term varchar(256) not null,
+      sort_key integer null,
+      obsolete boolean null)
+    </sql>
+  </changeSet>
+
+  <changeSet id="2" author="Alexey">
+    <sql>insert into value_assistance (va, code, term, sort_key, obsolete) values ('Language', 'EN','English', 1,
+      false)
+    </sql>
+    <sql>insert into value_assistance (va, code, term, sort_key, obsolete) values ('Language', 'IN','Indian', 2,
+      false)
+    </sql>
+    <sql>insert into value_assistance (va, code, term, sort_key, obsolete) values ('Language', 'NL','Dutch', 3, false)
+    </sql>
+    <sql>insert into value_assistance (va, code, term, sort_key, obsolete) values ('Language', 'DE','German', 4,
+      false)
+    </sql>
+  </changeSet>
+</databaseChangeLog>
