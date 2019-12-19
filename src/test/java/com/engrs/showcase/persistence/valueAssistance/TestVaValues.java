@@ -1,5 +1,6 @@
 package com.engrs.showcase.persistence.valueAssistance;
 
+import java.util.Arrays;
 import java.util.List;
 
 public final class TestVaValues
@@ -10,7 +11,7 @@ public final class TestVaValues
   public static List<ValueAssistanceEntity> getAll()
   {
     setEntityValueTest();
-    return List.of(ENTITY_IMPRINT_1, ENTITY_IMPRINT_2);
+    return Arrays.asList(ENTITY_IMPRINT_1, ENTITY_IMPRINT_2);
   }
 
   private static void setEntityValueTest()

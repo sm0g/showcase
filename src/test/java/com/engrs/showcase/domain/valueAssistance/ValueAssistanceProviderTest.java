@@ -4,7 +4,7 @@ import com.engrs.showcase.domain.valueAssistance.enumeration.BusinessModel;
 import com.engrs.showcase.utilities.labeledvalue.LabeledValue;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,6 +25,6 @@ public class ValueAssistanceProviderTest
 
   private void assertValues(String name, LabeledValue[] values)
   {
-    assertThat(provider.getLabeledValuesByName(name)).isEqualTo(List.of(values));
+    assertThat(provider.getLabeledValuesByName(name)).isEqualTo(Arrays.asList(values));
   }
 }
