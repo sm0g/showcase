@@ -11,6 +11,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,7 +46,8 @@ public class ValueAssistanceRepositoryAdapterTest
   public void getValueAssistanceWithCodeTest()
   {
     String code = "ZIMP";
-    List<LabeledValue> labeledValues = adapter.getValueAssistanceWithCode(IMPRINT_VA_TYPE, code);
-    assertThat(labeledValues).isEqualTo(TestVaValues.getAll());
+    Optional<LabeledValue> labeledValue = adapter.getValueAssistanceWithCode(IMPRINT_VA_TYPE, code);
+    assertThat(labeledValue.isPresent()).isTrue();
+    assertThat(labeledValue.get()).isEqualTo(TestVaValues.ENTITY_IMPRINT_1);
   }
 }

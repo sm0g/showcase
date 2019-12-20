@@ -2,7 +2,6 @@ server:
   port: 9080
 
 spring:
-  profiles: local
   application:
       name:  showcase-app
 

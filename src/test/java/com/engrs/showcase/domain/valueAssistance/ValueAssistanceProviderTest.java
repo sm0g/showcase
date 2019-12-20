@@ -15,12 +15,7 @@ public class ValueAssistanceProviderTest
   @Test
   public void getLabeledValuesByNameTest()
   {
-    assertValues("BusinessModel", BusinessModel.class);
-  }
-
-  private <E extends Enum<E> & LabeledValue> void assertValues(String name, Class<E> enumeration)
-  {
-    assertValues(name, enumeration.getEnumConstants());
+    assertValues("BusinessModel", BusinessModel.class.getEnumConstants());
   }
 
   private void assertValues(String name, LabeledValue[] values)

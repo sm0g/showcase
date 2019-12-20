@@ -12,10 +12,8 @@ import javax.validation.constraints.NotNull;
 @ToString
 @EqualsAndHashCode
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-04-29T12:23:05.681Z")
 final class LabeledValueDTO
 {
-
   private final LabeledValue value;
 
   public LabeledValueDTO(LabeledValue value)
@@ -38,6 +36,5 @@ final class LabeledValueDTO
   {
     return value.getLabel();
   }
-
 }
 

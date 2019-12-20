@@ -26,13 +26,7 @@ public class ValueAssistanceRepositoryAdapter implements ValueAssistanceReposito
   }
 
   @Override
-  public List<LabeledValue> getValueAssistanceWithCode(String va, final String code)
-  {
-    return repository.findAllByVaAndObsoleteOrCodeOrderBySortKeyAsc(va, false, code);
-  }
-
-  @Override
-  public Optional<LabeledValue> getExactValueAssistanceWithCode(String va, final String code)
+  public Optional<LabeledValue> getValueAssistanceWithCode(String va, final String code)
   {
     return repository.findByVaAndCode(va, code);
   }

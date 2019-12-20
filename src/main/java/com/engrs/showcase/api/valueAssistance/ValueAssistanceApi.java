@@ -27,6 +27,6 @@ public interface ValueAssistanceApi
           @NotNull
           @ApiParam(value = "Pass the name of one or more value assistance to get the entries", required = true)
           @Valid
-          @RequestParam(value = "types", required = true)
+          @RequestParam(value = "types")
                   List<String> types);
 }

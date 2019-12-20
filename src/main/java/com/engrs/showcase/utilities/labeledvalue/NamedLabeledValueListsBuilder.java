@@ -50,9 +50,9 @@ public class NamedLabeledValueListsBuilder
    * Calls {@link #addEnum(String, Class)} using the {@linkplain Class#getSimpleName() simple name}
    * of the enum class as name.
    */
-  public <E extends Enum<E> & LabeledValue> NamedLabeledValueListsBuilder addEnum(@NonNull Class<E> enumClass)
+  public <E extends Enum<E> & LabeledValue> void addEnum(@NonNull Class<E> enumClass)
   {
-    return add(enumClass.getSimpleName(), enumClass.getEnumConstants());
+    add(enumClass.getSimpleName(), enumClass.getEnumConstants());
   }
 
   /**

@@ -1,12 +1,7 @@
 package com.engrs.showcase.api.valueAssistance;
 
 import com.engrs.showcase.domain.valueAssistance.ValueAssistanceProvider;
-import com.engrs.showcase.domain.valueAssistance.enumeration.BusinessModel;
-import com.engrs.showcase.utilities.labeledvalue.LabeledValue;
-import com.engrs.showcase.utilities.labeledvalue.NamedLabeledValueLists;
-import com.engrs.showcase.utilities.labeledvalue.NamedLabeledValueListsBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

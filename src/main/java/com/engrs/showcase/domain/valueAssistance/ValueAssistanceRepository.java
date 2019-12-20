@@ -10,8 +10,7 @@ public interface ValueAssistanceRepository
 {
 
   List<LabeledValue> getValueAssistance(final String type);
-  List<LabeledValue> getValueAssistanceWithCode(String va, final String code);
-  Optional<LabeledValue> getExactValueAssistanceWithCode(String va, final String code);
+  Optional<LabeledValue> getValueAssistanceWithCode(String va, final String code);
 
   /**
    * Passes all lists with one of the given names to the callback, ignores unknown names.
@@ -24,5 +23,4 @@ public interface ValueAssistanceRepository
       if (!list.isEmpty()) callback.accept(name, list);
     }
   }
-
 }

@@ -10,9 +10,6 @@ public interface ValueAssistanceEntityRepository extends JpaRepository<ValueAssi
 {
   List<LabeledValue> findAllByVaAndObsoleteOrderBySortKeyAsc(final String va, final boolean obsolete);
 
-  List<LabeledValue> findAllByVaAndObsoleteOrCodeOrderBySortKeyAsc(
-          final String va, final boolean obsolete, final String code);
-
   Optional<LabeledValue> findByVaAndCode(final String va, final String code);
 }
 
